@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0A0A0E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap"
+      rel="stylesheet"
+    />
+    <title>NSF BRAIN Hub — Demo Redesign</title>
+    <meta name="description" content="Demo redesign concept for nsfbrain.org and the Movement, Music & BrainHealth AccelNet central hub." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="NSF BRAIN Hub — Demo Redesign" />
+    <meta property="og:description" content="A design concept for the NSF BRAIN Center, the Movement, Music & BrainHealth AccelNet, and the Music & Dementia Research Network." />
+    <meta property="og:image" content="https://brain-hub-demo.vercel.app/images/hero-dancers.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <style>
+      /* Shown until React mounts and replaces #root's contents. Plain CSS so
+         there is never a blank flash: an EEG trace draws itself on ink. */
+      #boot-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        background: #0a0a0e;
+        z-index: 9999;
+      }
+      #boot-loader svg { width: min(360px, 70vw); height: 64px; overflow: visible; }
+      #boot-loader path {
+        fill: none;
+        stroke: #ff4a1c;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1200;
+        stroke-dashoffset: 1200;
+        animation: boot-draw 1.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+      }
+      #boot-loader .label {
+        font: 500 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #a8a59c;
+      }
+      @keyframes boot-draw {
+        0% { stroke-dashoffset: 1200; }
+        70%, 100% { stroke-dashoffset: 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #boot-loader path { animation: none; stroke-dashoffset: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="boot-loader" role="status" aria-label="Loading">
+        <svg viewBox="0 0 360 64" aria-hidden="true">
+          <path d="M0 34 H60 L72 34 L82 10 L94 58 L106 26 L116 34 H170 L180 34 L190 22 L200 46 L210 34 H260 L272 34 L282 6 L294 60 L306 30 L316 34 H360" />
+        </svg>
+        <span class="label">BRAIN Hub · loading signal</span>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
